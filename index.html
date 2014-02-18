@@ -8,7 +8,10 @@
   <meta name="author" content="">
 
   <!-- Bootstrap core CSS -->
-  <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="bower_components/bootstrap.css/css/bootstrap.min.css"
+        rel="stylesheet">
+  <!-- <link href="bower_components/bootstrap.css/css/bootstrap-responsesive.min.css"
+  rel="stylesheet"> -->
   
   <link href="css/base.css" rel="stylesheet">
 
@@ -16,8 +19,10 @@
 <!-- templates -->
 <!--------------->
 <script type="text/mustache" id="channels_template">
-{{#collection.models}}
-  <a href="#" class="list-group-item{{#is_active}} active{{/is_active}}" id="{{channel_id_prefix}}{{id}}">{{code}}</li>
+ {{#collection.models}}
+ <li class="list-group-item{{#is_active}} active{{/is_active}}">
+ <a href="#"  id="{{channel_id_prefix}}{{id}}">{{code}}</a>
+ </li>
 {{/collection.models}}
 </script>
 
@@ -79,19 +84,19 @@
   <!-- Header -->
   <div class="container-fluid">
     <div class="row-fluid">
-      <div class="col-md-4"><h3>Publicator Client</h3></div>
-      <div class="col-md-4 lead" id="channel_name_panel">
+      <div class="span4"><h3>Publicator Client</h3></div>
+      <div class="span4 lead" id="channel_name_panel">
         <div class="alert alert-warning">No channel selected</div>
       </div>
-      <div class="col-md-2 mt2" id="connection_panel">
+      <div class="span2 mt2" id="connection_panel">
       </div>
-      <div class="col-md-2 mt2">
+      <div class="span2 mt2">
         <span class="text-muted s18">Session id:</span>
         <span id="session_id_span" class="text-success s24">testtesttest</span>
       </div>
     </div>
   </div>
-  </div>
+
 
 
 <!-- Message_container -->
@@ -100,21 +105,21 @@
 <!-- Side Panel -->
 <div class="pf t100 b70 w200 r0 oa">
   <!-- mt10 mb10 ml10 mr10 -->
-  <div id="channels_container" class="list-group"></div>
+  <ul id="channels_container" class="list-group"></ul>
   <div id='add_channel_panel'></div>
   
-  </div>
+</div>
 
 
 
 <!-- Bottom Area -->
 <div id="bottomArea" class="container-fluid pf b0 h70 r0 l0 oa by">
   <div class="row-fluid mt10">
-    <div class="col-md-11">
+    <div class="span11">
       <input id="main_input" type="text" class="wf mb0 form-control"
              disabled="disabled"/>
     </div>
-    <div class="col-md-1">
+    <div class="span1">
       <button class="btn btn-default wf" type="button" id="send_button"
               disabled="disabled">Send</button>
     </div>
